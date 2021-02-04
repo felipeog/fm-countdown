@@ -102,9 +102,10 @@ const init = () => {
     setValue(date[dateType], dateType)
   })
 
-  const intervalId = setInterval(() => {
-    if (Object.values(date).every((value) => value === 0))
-      return clearInterval(intervalId)
+  const interval = rxjs.timer(0, 1_000).subscribe(() => {
+    if (Object.values(date).every((value) => value === 0)) {
+      return interval.unsubscribe()
+    }
 
     if (date.hours === 0 && date.minutes === 0 && date.seconds === 0) {
       date.days = date.days - 1
@@ -123,7 +124,7 @@ const init = () => {
 
     date.seconds = date.seconds > 0 ? date.seconds - 1 : dateMax.seconds
     setValueWithTransition(date.seconds, 'seconds')
-  }, 1_000)
+  })
 }
 
 window.addEventListener('load', init)
