@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./favicon-32x32.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Launch countdown timer</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <main class="countdown">
+        <h1 class="title">We're launching soon</h1>
+
+        <div class="card">
+          <div class="top">
+            <div class="top__next">
+              <span class="top__number"></span>
+            </div>
+
+            <!-- <div class="top__current top__current--flip"> -->
+            <div class="top__current">
+              <span class="top__number"></span>
+            </div>
+          </div>
+
+          <div class="bottom">
+            <div class="bottom__current">
+              <span class="bottom__number"></span>
+            </div>
+
+            <!-- <div class="bottom__next bottom__next--flip"> -->
+            <div class="bottom__next">
+              <span class="bottom__number"></span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">facebook pinterest instagram</footer>
+    </div>
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

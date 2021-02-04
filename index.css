@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --bg-color: hsl(234, 17%, 12%);
+  --top-number-color: hsl(345, 72%, 59%);
+  --bottom-number-color: hsl(345, 95%, 68%);
+  --card-top-bg: #2c2c45;
+  --card-bottom-bg: #34354f;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: var(--white);
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background-image: url(./img/bg-stars.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+.card {
+  width: 10rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.top,
+.bottom {
+  height: 5rem;
+  position: relative;
+}
+
+.top__current,
+.top__next,
+.bottom__current,
+.bottom__next {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 5rem;
+  overflow: hidden;
+}
+
+.top__current,
+.top__next {
+  background-color: var(--card-top-bg);
+  color: var(--top-number-color);
+}
+
+.bottom__current,
+.bottom__next {
+  background-color: var(--card-bottom-bg);
+  color: var(--bottom-number-color);
+}
+
+.top__current.top__current--flip {
+  animation-name: top-half-flip;
+  animation-duration: 501ms;
+  animation-timing-function: ease-in;
+  transform-origin: center bottom;
+}
+
+.bottom__next {
+  transform: rotateX(90deg);
+}
+
+.bottom__next.bottom__next--flip {
+  animation-name: bottom-half-flip;
+  animation-duration: 501ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  transform-origin: center top;
+}
+
+.top__number,
+.bottom__number {
+  font-size: 6rem;
+}
+
+.top__number {
+  transform: translateY(1rem);
+}
+
+.bottom__number {
+  transform: translateY(-4rem);
+}
+
+.footer {
+  display: flex;
+  height: 16vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url(./img/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+@keyframes top-half-flip {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes bottom-half-flip {
+  from {
+    transform: rotateX(90deg);
+  }
+
+  to {
+    transform: rotateX(0deg);
+  }
+}
