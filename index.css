@@ -22,6 +22,7 @@ body {
 html {
   color: var(--white);
   font-family: 'Red Hat Text', sans-serif;
+  font-size: 14px;
 }
 
 body {
@@ -43,18 +44,28 @@ body {
 
 .countdown {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 .title {
-  font-size: 1.4rem;
+  text-align: center;
+  font-size: 1.6rem;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
+  margin-bottom: 6rem;
+}
+
+.cards {
+  display: flex;
 }
 
 .card {
   width: 10rem;
   border-radius: 0.6rem;
-  overflow: hidden;
   font-weight: bold;
 }
 
@@ -62,6 +73,15 @@ body {
 .bottom {
   height: 5rem;
   position: relative;
+  perspective: 24rem;
+}
+
+.top {
+  perspective-origin: bottom;
+}
+
+.bottom {
+  perspective-origin: top;
 }
 
 .top__current,
@@ -78,12 +98,16 @@ body {
 
 .top__current,
 .top__next {
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
   background-color: var(--card-top-bg);
   color: var(--top-number-color);
 }
 
 .bottom__current,
 .bottom__next {
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
   background-color: var(--card-bottom-bg);
   color: var(--bottom-number-color);
 }
@@ -97,14 +121,13 @@ body {
 
 .bottom__next {
   transform: rotateX(90deg);
+  transform-origin: center top;
 }
 
 .bottom__next.bottom__next--flip {
   animation-name: bottom-half-flip;
   animation-duration: 501ms;
   animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  transform-origin: center top;
 }
 
 .top__number,
@@ -120,9 +143,19 @@ body {
   transform: translateY(-4rem);
 }
 
+.card__label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: regular;
+  letter-spacing: 0.4rem;
+  text-align: center;
+  color: #8a89a3;
+}
+
 .footer {
   display: flex;
   height: 16vw;
+  min-height: 20vh;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -132,13 +165,27 @@ body {
   background-size: cover;
 }
 
+.footer__icon {
+  cursor: pointer;
+  transition: 200ms;
+  fill: #8385a9;
+}
+
+.footer__icon:hover {
+  fill: #fa5e83;
+}
+
+.footer__icon + .footer__icon {
+  margin-left: 2rem;
+}
+
 @keyframes top-half-flip {
   from {
     transform: rotateX(0deg);
   }
 
   to {
-    transform: rotateX(90deg);
+    transform: rotateX(-90deg);
   }
 }
 
@@ -149,5 +196,25 @@ body {
 
   to {
     transform: rotateX(0deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card + .card {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .countdown {
+    padding-top: 6rem;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .card + .card {
+    margin-top: 2rem;
   }
 }
