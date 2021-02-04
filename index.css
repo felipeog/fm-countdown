@@ -118,12 +118,58 @@ body {
   color: var(--top-number-color);
 }
 
+.top__current:before,
+.top__next:before,
+.top__current:after,
+.top__next:after {
+  position: absolute;
+  bottom: -0.4rem;
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #181925;
+  border-radius: 50%;
+}
+
+.top__current:before,
+.top__next:before {
+  left: -0.4rem;
+}
+
+.top__current:after,
+.top__next:after {
+  right: -0.4rem;
+}
+
 .bottom__current,
 .bottom__next {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   background-color: var(--card-bottom-bg);
   color: var(--bottom-number-color);
+}
+
+.bottom__current:before,
+.bottom__next:before,
+.bottom__current:after,
+.bottom__next:after {
+  position: absolute;
+  top: -0.4rem;
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #181925;
+  border-radius: 50%;
+}
+
+.bottom__current:before,
+.bottom__next:before {
+  left: -0.4rem;
+}
+
+.bottom__current:after,
+.bottom__next:after {
+  right: -0.4rem;
 }
 
 .top__current.top__current--flip {
