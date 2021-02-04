@@ -6,7 +6,8 @@
 
 :root {
   --white: #ffffff;
-  --bg-color: #191a24;
+  --bg-color: #201e2b;
+  --box-shadow: 0 1rem #191a23;
   --top-number-color: #e24b71;
   --bottom-number-color: #fb6087;
   --card-top-bg: #2c2c45;
@@ -78,6 +79,8 @@ body {
 .card {
   width: 10rem;
   font-weight: bold;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 .top,
@@ -161,6 +164,7 @@ body {
   letter-spacing: var(--letter-spacing);
   text-align: center;
   color: var(--card-label-color);
+  margin-top: 1.8rem;
 }
 
 /*
@@ -220,7 +224,7 @@ body {
  * media queries
  */
 @media screen and (min-width: 768px) {
-  .card + .card {
+  .card-wrapper + .card-wrapper {
     margin-left: 2rem;
   }
 }
@@ -234,7 +238,7 @@ body {
     flex-direction: column;
   }
 
-  .card + .card {
+  .card-wrapper + .card-wrapper {
     margin-top: 2rem;
   }
 }
